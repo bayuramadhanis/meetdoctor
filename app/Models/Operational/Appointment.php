@@ -31,4 +31,26 @@ class Appointment extends Model
         'updated_at',
         'deleted_at',
     ];
+    // One To Many relationship declaration
+    public function doctor()
+    {
+        //2 parameters (path model, field foreign key)
+        return $this->belongsTo('App\Models\Operational\Doctor', 'doctor_id', 'id');
+    }
+    public function consultation()
+    {
+        //2 parameters (path model, field foreign key)
+        return $this->belongsTo('App\Models\MasterData\Consultation', 'consultation_id', 'id');
+    }
+    public function user()
+    {
+        //2 parameters (path model, field foreign key)
+        return $this->belongsTo('App\Models\user', 'user_id', 'id');
+    }
+    // One To Many relationship declaration
+    public function transaction()
+    {
+        //2 parameters (path model, field foreign key)
+        return $this->hasOne('App\Models\Operational\Transaction', 'appointment_id');
+    }
 }

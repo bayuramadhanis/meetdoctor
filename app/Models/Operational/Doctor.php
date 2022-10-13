@@ -28,4 +28,16 @@ class Doctor extends Model
         'updated_at',
         'deleted_at',
     ];
+    // One To Many relationship declaration
+    public function specialist()
+    {
+        //2 parameters (path model, field foreign key)
+        return $this->belongsTo('App\Models\MasterData\Specialist', 'specialist_id', 'id');
+    }
+    // One To Many relationship declaration
+    public function appointment()
+    {
+        //2 parameters (path model, field foreign key)
+        return $this->hasMany('App\Models\Operational\Appointment', 'doctor_id');
+    }
 }

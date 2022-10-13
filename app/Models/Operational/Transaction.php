@@ -31,4 +31,10 @@ class Transaction extends Model
         'updated_at',
         'deleted_at',
     ];
+    // One To Many relationship declaration
+    public function appointment()
+    {
+        //2 parameters (path model, field foreign key)
+        return $this->belongsTo('App\Models\Operational\Appointment', 'appointment_id', 'id');
+    }
 }
