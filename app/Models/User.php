@@ -70,7 +70,7 @@ class User extends Authenticatable
     public function detail_user()
     {
         //2 parameters (path model, field foreign key)
-        return $this->hasOne('App\Models\MasterData\DetailUser', 'type_user_id');
+        return $this->hasOne('App\Models\ManagementAccess\DetailUser', 'type_user_id');
     }
     public function role_user()
     {
